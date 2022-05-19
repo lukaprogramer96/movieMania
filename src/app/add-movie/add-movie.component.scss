@@ -1,0 +1,157 @@
+.veliki-kontejner {
+    display: flex;
+    justify-content: center;
+}
+
+.forma-za-izmenu {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-right: 150px;
+}
+
+.naziv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movie-name-validator {
+    margin-left: 325px;
+}
+
+.form-control {
+    margin-top: 10px;
+}
+
+.opis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movie-description-validator {
+    margin-left: 325px;
+}
+
+.description-paragraph {
+    margin-top: 50px;
+}
+
+.godina {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movie-year-validator {
+    margin-left: 325px;
+}
+
+.ocena {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vreme-trajanja {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reziser{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.zanr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input {
+    margin-top: 10px;
+    height: 25px;
+    width: 200px;
+}
+
+textarea {
+    width: 200px;
+    height: 100px;
+}
+
+.plus-dugme {
+color: black;
+background-color: #0066FF;
+border: none;
+border-radius: 5px;
+width: 25px;
+height: 25px;
+cursor: pointer;
+}
+
+.save-dugme {
+    color: white;
+background-color: #0066FF;
+border: none;
+border-radius: 5px;
+width: 50px;
+height: 30px;
+cursor: pointer;
+}
+
+p {
+    margin-top: 10px;
+    margin-left: 150px;
+}
+
+.kutija-za-zanr {
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+    
+}
+
+.dugme {
+    display: flex;
+    margin-right: 150px;
+    justify-content: space-around;
+}
+
+.nova-forma {
+    width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.novi-zanr-dugme {
+    color: white;
+    background-color: #0066FF;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 110px;
+    margin-left: 45px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.input-treca-forma {
+    width: 150px;
+    height: 25px;
+    margin-left: 25px;
+}
+
+.modal-content {
+    display: flex
+}
+
+.unesi-novi-zanr {
+    margin-left: 25px;
+}
+

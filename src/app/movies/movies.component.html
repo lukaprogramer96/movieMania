@@ -1,0 +1,43 @@
+<!-- <div class="roditelj-kontejner"> -->
+    <div class="filmovi">
+        <div class="dugmici">
+            <div class="prev-next">
+            <a *ngIf="currentNumber != 0" (click)="prevButton()" class="previous">&laquo; Previous</a>
+            <a  *ngIf="currentNumber != size " (click)="nextButton()" class="next">Next &raquo;</a>
+        </div>
+        <div class="sort-by">
+            <div >
+                <label for="movies">Sort by:</label>
+                <select (change)="sortBy($event)" name="movies" id="movies">
+                  <option value="rating">Rating</option>
+                  <option value="year">Year</option>
+                </select>
+                <button (click)="orderBy()">↓</button>
+              </div>
+              
+            </div>
+    </div>
+        <div *ngFor="let m of apiMovieList.slice(startSlice, endSlice)" class="film">
+            <div class="naziv-godina">
+                <h2 [routerLink]="['/add-movie/'+m._id]" (click)="displayForm()" class="naziv-filma">{{ m.name }}</h2>
+                <h2 class="godina-filma">({{ m.year }})</h2>
+            </div>
+            <div class="opis">
+                <p>{{ m.description }}</p>
+            </div>
+            <div class="rejting-zvezdica-trajanje">
+            <div class="rejting-slicica">
+                <img src="assets/images/gold_star.png " alt="">
+                <p>{{ m.rating }}</p>
+            </div>
+            <div class="trajanje">
+                <p>{{ m.duration }} mins.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+<!-- </div> -->
+<!-- <a href=""></a> -->
+<!-- *ngFor="let m of apiMovieDetails" -->
+<!-- (click)="open(content)" ovo cu u h2 -->
+

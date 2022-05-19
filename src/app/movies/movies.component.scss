@@ -1,0 +1,68 @@
+.film {
+    background-color: #D8D8D8;
+}
+
+.naziv-godina {
+    display: flex;
+    margin: 15px;
+}
+
+.godina-filma {
+    margin-left: 15px;
+}
+
+.naziv-filma {
+    color: #0066FF;
+    cursor: pointer;
+}
+
+.opis {
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.rejting-zvezdica-trajanje {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.rejting-slicica {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.trajanje {
+    margin-right: 15px;
+}
+
+.dugmici {
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    margin: 15px;
+    color: #0066FF;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    border: none;
+}
+
+button {
+    border: 0.5px solid gray;
+    margin: 5px;
+}
+
+label {
+    margin: 5px;
+}
