@@ -1,60 +1,62 @@
 <div class="veliki-kontejner">
-<form class="forma-za-izmenu" [formGroup]="movieForm">
-    <div class="naziv">
-        <p>Name:</p>
-        <input fomrControlName="movieName" type="text">
-        <p class="movie-name-validator" style="color: red;" *ngIf="movieName?.errors?.['required']">Movie name required!</p>
-    </div>
-    <div class="opis">
-        <p class="description-paragraph">Description:</p>
-        <textarea formControlName="movieDescription" name="" id="" cols="30" rows="10"></textarea>
-        <p class="movie-description-validator" style="color: red;" *ngIf="movieDescription?.errors?.['required']">Add movie description!</p>
-    </div>
-    <div class="godina">
-        <p>Year:</p>
-        <input formControlName="movieYear">
-        <p class="movie-year-validator" style="color: red;" *ngIf="movieYear?.errors?.['required']">Enter movie year!</p>
-    </div>
-    <div class="ocena">
-        <p>Rating:</p>
-        <input formControlName="movieRating">
-    </div>
-    <div class="vreme-trajanja">
-        <p>Duration:</p>
-        <input formControlName="movieDuration">
-    </div>
-    <div class="reziser">
-        <p>Director:</p>
-        <input formControlName="movieDirector">
-    </div>
-    <div class="zanr">
-        <p>Genre:</p>
-        <div formControlName="movieGenre">
-            
-            <select class="kutija-za-zanr" name="movies" id="movies">
-              <option value="rating">Action</option>
-              <option value="rating">Comedy</option>
-              <option value="rating">Mystery</option>
-              <option value="rating">Sci-fi</option>
-              <option value="rating">War</option>
-              <option value="rating">Horror</option>
-              <option value="rating">Drama</option>
-            </select>
-            
-          </div>
-          <button class="plus-dugme" (click)="open(content)">+</button>
-    </div>
-    <div class="dugme">
-        <button class="save-dugme">Save</button>
-    </div>    
-      <ng-template #content let-c="close" let-d="dismiss">
+    <form class="forma-za-izmenu" [formGroup]="movieForm">
+        <div class="naziv">
+            <p>Name:</p>
+            <input formControlName="movieName">
+            <p class="movie-name-validator" style="color: red;" *ngIf="movieName?.errors?.['required']">Movie name required!</p>
+        </div>
+        <div class="opis">
+            <p class="description-paragraph">Description:</p>
+            <textarea formControlName="movieDescription" name="" id="" cols="30" rows="10"></textarea>
+            <p class="movie-description-validator" style="color: red;" *ngIf="movieDescription?.errors?.['required']">Add movie description!</p>
+        </div>
+        <div class="godina">
+            <p>Year:</p>
+            <input formControlName="movieYear">
+            <p class="movie-year-validator" style="color: red;" *ngIf="movieYear?.errors?.['required']">Enter movie year!</p>
+        </div>
+        <div class="ocena">
+            <p>Rating:</p>
+            <input formControlName="movieRating">
+        </div>
+        <div class="vreme-trajanja">
+            <p>Duration:</p>
+            <input formControlName="movieDuration">
+        </div>
+        <div class="reziser">
+            <p>Director:</p>
+            <input formControlName="movieDirector">
+        </div>
+        <div class="zanr">
+            <p>Genre:</p>
+            <div >
+                
+                <select formControlName="movieGenre" class="kutija-za-zanr" name="movies" id="movies">
+                  <option value="rating">Action</option>
+                  <option value="rating">Comedy</option>
+                  <option value="rating">Mystery</option>
+                  <option value="rating">Sci-fi</option>
+                  <option value="rating">War</option>
+                  <option value="rating">Horror</option>
+                  <option value="rating">Drama</option>
+                </select>
+                
+              </div>
+              <button class="plus-dugme" (click)="open(content)">+</button>
+        </div>
+        <div class="dugme">
+            <button class="save-dugme" (click)="save()">Save</button>
+        </div>    
+          
+        
+    </form>
+    <ng-template #content let-c="close" let-d="dismiss">
         <div class="nova-forma">
         <span class="unesi-novi-zanr">Enter new genre:</span>
-        <input class="input-treca-forma" type="text">
-        <button class="novi-zanr-dugme">Add New Genre</button>
+        <input [(ngModel)]="newGenreName" class="input-treca-forma" type="text">
+        <button (click)="postGenre()" class="novi-zanr-dugme">Add New Genre</button>
       </div>
       </ng-template>
+    </div>
     
-</form>
-</div>
-
+    

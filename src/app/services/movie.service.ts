@@ -6,6 +6,7 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieService {
+  
 public year: boolean = false;
 public rating: boolean = false;
 
@@ -28,13 +29,19 @@ getMovieGenre() {
 }
 
 saveMovie(movieObject: any) {
-  return this.http.post('http://localhost:3000/api/movies/:movieId', movieObject).pipe(map(response => {return response;
+  return this.http.post('http://localhost:3000/api/movies', movieObject).pipe(map(response => {return response;
 }))
 }
 
-// // putMovie() {
-// //   return this.http.put('http://localhost:3000/api/movies/'+obj._id, obj).pipe(map(response => {return response; 
-// // }))
-// }
+putMovie(genreObject: any) {
+  return this.http.put('http://localhost:3000/api/movies/'+genreObject._id, genreObject).pipe(map(response => {return response; 
+}))
+}
+
+postGenre(newGenre: any) {
+  return this.http.post('http://localhost:3000/api/genres', newGenre).pipe(map(response => { return response;
+}))
+}
 
 }
+

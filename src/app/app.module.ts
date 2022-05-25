@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { MoviesComponent } from './movies/movies.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -24,7 +24,8 @@ import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

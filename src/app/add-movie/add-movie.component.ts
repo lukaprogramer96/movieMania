@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../services/movie.service';
 import { FormControl, Validators } from '@angular/forms';
-import {NgbModal, ModalDismissReasons, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -16,6 +16,8 @@ export class AddMovieComponent implements OnInit {
   public MId: number = 0;
   public movie: any;
   public closeResult: any;
+  public newGenreName: string = '';
+  
   movieForm = new FormGroup({
     movieName: new FormControl('', [Validators.required]),
     movieDescription: new FormControl('', [Validators.required, Validators.minLength(30), Validators.maxLength(250)]),
@@ -25,6 +27,7 @@ export class AddMovieComponent implements OnInit {
     movieDirector: new FormControl(''),
     movieGenre: new FormControl('')
   })
+  
 
   constructor(public movieService: MovieService, public _activeRoutes: ActivatedRoute, public router: Router, config:NgbModalConfig, private modalService: NgbModal) { }
 
@@ -68,26 +71,49 @@ export class AddMovieComponent implements OnInit {
     }
 
     get movieGenre() {
-      return this.movieForm.get('movieRating')
+      return this.movieForm.get('movieGenre')
     }
 
     save() {
-      let movieObject: {
-        _id: null,
-        name: string,
-        description: string,
-        year: number,
-        rating: number,
-        duration: number,
-        director: string,
-        genre: string
+      if(this.MId) { //ako postoji id filma onda ga mogu editovati i sacuvati
+        this.putMovie()
+      } else {
+        this.saveMovie() //ako ne postoji id filma onda unosim novi film i cuvam ga
       }
+      
     }
 
-  saveMovie(movieObject: any) {
+    putMovie() {
+      let genreObject = {
+        _id: this.MId,
+        name: this.movieName?.value,
+        description: this.movieDescription?.value,
+        year: this.movieYear?.value,
+        rating: this.movieRating?.value,
+        duration: this.movieRating?.value,
+        director: this.movieDirector?.value,
+        genre: this.movieGenre?.value
+      }
+      this.movieService.putMovie(genreObject).subscribe((response: any) => {
+        console.log(response);
+        this.router.navigate(['/movies'])
+      })
+    }
+
+  saveMovie() {
+    let movieObject = {
+      _id: null,
+      name: this.movieName?.value,
+      description: this.movieDescription?.value,
+      year: this.movieYear?.value,
+      rating: this.movieRating?.value,
+      duration: this.movieDuration?.value,
+      director: this.movieDirector?.value,
+      genre: this.movieGenre?.value
+    }
     this.movieService.saveMovie(movieObject).subscribe((response: any) =>{
        console.log(response);
-      // this.router.navigate('')
+      this.router.navigate(['/movies'])
     })
   }
 
@@ -111,6 +137,17 @@ export class AddMovieComponent implements OnInit {
   open(content: any) {
     this.modalService.open(content);
   }
+
+  postGenre() {
+    console.log(this.newGenreName);
+    let newGenre = {
+      name: this.newGenreName
+    }
+  this.movieService.postGenre(newGenre).subscribe((response: any) =>{
+    console.log(response);
+   this.modalService.dismissAll();
+   this.newGenreName = ''; 
+   
+ })
 }
-
-
+}
